@@ -1,0 +1,34 @@
+# Greeting at start
+print("Hello! I'm a simple Chatbot")
+
+# greet dictionary to respond to
+greet_list = ['hi', 'hello', 'wassup', 'there', 'hey']
+# bye dictionary to respond to
+bye_list = ['bye', 'goodbye', 'see ya', 'cya', 'see you later']
+# name dictionary to respond to
+name_list = ['name', 'youre', 'your']
+
+while True:
+	responses = []
+	user_input = input("You: ")
+
+	# Using individual if statements so that all are checked at once in the user input
+	if any(word in user_input.lower() for word in bye_list):
+		print("Bot: Goodbye")
+		break
+
+	if any(word in user_input.lower() for word in name_list):
+		responses.append("Bot: Im SimpleBot")
+
+	if 'how' in user_input.lower() or 'who' in user_input.lower():
+		responses.append("Bot: Thanks for asking, but im just code")
+
+	if any(word in user_input.lower() for word in greet_list):
+		responses.append("Bot: Hi! How may I help you?")
+
+	if not responses:	#Echoing user input as a default
+		print(f"Bot: ", user_input)
+	else:
+		for r in responses:
+			print(r)
+		
